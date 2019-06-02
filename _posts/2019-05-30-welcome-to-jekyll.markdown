@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Welcome to Pasqualandia's blog!"
 date:   2019-05-30 10:19:20 +0200
 categories: jekyll update
 ---
