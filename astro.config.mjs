@@ -7,7 +7,6 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://ppanuccio.github.io',
-	base: '/pasqualandia',
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
