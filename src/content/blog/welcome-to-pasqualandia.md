@@ -1,11 +1,11 @@
 ---
 title: "Welcome to Pasqualandia's blog!"
-description: 'Il primo post del blog, migrato da Jekyll.'
+description: 'The first post of this blog, migrated from Jekyll.'
 pubDate: 'May 30 2019'
 heroImage: '../../assets/blog-placeholder-1.jpg'
 ---
 
-Benvenuti! Questo è il primo post, migrato dal vecchio sito Jekyll.
+Welcome! This is the first post, migrated from the old Jekyll site.
 
 To add new posts, simply add a file in the `src/content/blog` directory that follows the convention `YYYY-MM-DD-name-of-post.md` and includes the necessary front matter.
 

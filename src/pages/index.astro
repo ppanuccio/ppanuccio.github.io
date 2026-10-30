@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { EMAIL, GITHUB_URL, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
@@ -13,47 +13,102 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to
-				build a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your{' '}
-				<code>astro.config.mjs</code> file. You can customize your setup with{' '}
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like
-				Tailwind, React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>
-					Edit this page in <code>src/pages/index.astro</code>
-				</li>
-				<li>
-					Edit the site header items in <code>src/components/Header.astro</code>
-				</li>
-				<li>
-					Add your name to the footer in <code>src/components/Footer.astro</code>
-				</li>
-				<li>
-					Check out the included blog posts in <code>src/content/blog/</code>
-				</li>
-				<li>
-					Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code>
-				</li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to{' '}
-				<a href="https://docs.astro.build/">read the docs</a> or{' '}
-				<a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out{' '}
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a> by{' '}
-				<a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="intro">
+				<h1>Hi, I'm Pasquale 👋</h1>
+				<p class="tagline">
+					Software engineer. On this site you'll find my <a href="/cv/">CV</a> and a <a href="/blog/"
+						>blog</a
+					> where I write about technology and what I'm learning.
+				</p>
+				<div class="cta">
+					<a class="button" href="/cv/">View my CV</a>
+					<a class="button secondary" href="/blog/">Go to the blog</a>
+				</div>
+			</section>
+
+			<section class="highlights">
+				<div class="card">
+					<h2>About me</h2>
+					<p>
+						<!-- TODO: replace with your own 2-3 sentence bio -->
+						A developer with a passion for well-crafted software. This site collects my projects,
+						experience and thoughts.
+					</p>
+				</div>
+				<div class="card">
+					<h2>What you'll find here</h2>
+					<ul>
+						<li><a href="/cv/">CV</a> — my professional journey</li>
+						<li><a href="/blog/">Blog</a> — articles and notes</li>
+					</ul>
+				</div>
+				<div class="card">
+					<h2>Where to find me</h2>
+					<ul>
+						<li><a href={GITHUB_URL}>GitHub</a> — my code</li>
+						<li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+					</ul>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.intro {
+		text-align: center;
+		padding: 3em 1em 2em;
+	}
+	.intro h1 {
+		font-size: 2.4em;
+		margin-bottom: 0.4em;
+	}
+	.tagline {
+		color: rgb(var(--gray-dark));
+		max-width: 560px;
+		margin: 0 auto 1.5em;
+	}
+	.cta {
+		display: flex;
+		gap: 1em;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.button {
+		display: inline-block;
+		padding: 0.6em 1.4em;
+		border-radius: 8px;
+		background: var(--accent);
+		color: white;
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.button.secondary {
+		background: transparent;
+		color: var(--accent);
+		border: 2px solid var(--accent);
+	}
+	.highlights {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5em;
+		max-width: 900px;
+		margin: 2em auto;
+		padding: 0 1em;
+	}
+	.card {
+		background: white;
+		border-radius: 12px;
+		box-shadow: var(--box-shadow);
+		padding: 1.4em;
+	}
+	.card h2 {
+		font-size: 1.1em;
+		margin-top: 0;
+	}
+	.card ul {
+		margin: 0;
+		padding-left: 1.2em;
+	}
+</style>

@@ -1,0 +1,403 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { EMAIL, GITHUB_URL } from '../consts';
+
+const LINKEDIN_URL = 'https://linkedin.com/in/pasqualepanuccio';
+
+const experience = [
+	{
+		role: 'Senior Software Engineer',
+		company: 'UBS Group AG (former Credit Suisse AG)',
+		location: 'Lugano area, CH',
+		period: 'Sep 2022 – present',
+		description:
+			'Designing and developing bank-wide data platforms and AI-driven solutions, delivering high-quality software at scale.',
+		projects: [
+			{
+				name: 'Data Fabric Management',
+				text: 'Design and development of a data fabric management system handling the entire life cycle of credit risk data bank-wide. Microservices architecture deployed on OpenShift, harmonizing data from different sources and exposing it to downstream systems via API: 20+ TB of data managed, ~40 stakeholders, 60+ incoming and 40+ outbound feeds (~10 GB/day).',
+				tech: 'Java, Spring Boot, Oracle DB, OpenShift, S3, Apache Pulsar',
+			},
+			{
+				name: 'Confidential Data Management',
+				text: 'Technical reference of a component managing strictly confidential data; started its modernization: migration to OpenJDK 17 and Maven, from zero to 200+ unit tests, job execution time reduced from 20 hours to 3, integration tests in CI with a disposable Oracle DB container, documentation written from scratch.',
+				tech: 'Java, Maven, Oracle DB',
+			},
+			{
+				name: 'Credit Risk Review Agentic Processing',
+				text: 'Joint UBS–Microsoft collaboration to automate the credit risk review process with AI agents: reading and analyzing balance-sheet documents of hundreds of pages, populating Excel files, summarizing data and raising alerts on policy violations — saving hours of manual work per document.',
+				tech: 'Python, UV, LangGraph',
+			},
+		],
+	},
+	{
+		role: 'Agile Software Engineer',
+		company: 'Claranet Switzerland (former XPeppers Sagl)',
+		location: 'Lugano, CH',
+		period: 'Jul 2018 – Aug 2022',
+		description:
+			'Delivered systems for banking, media and public-sector clients as hands-on engineer and, for the Senate, technical account manager.',
+		projects: [
+			{
+				name: 'Senato della Repubblica Italiana',
+				text: 'Technical Account Manager, helping the customer meet their needs by introducing cloud technologies.',
+				tech: 'Serverless, AWS Lambda, API Gateway, S3, React, DynamoDB',
+			},
+			{
+				name: 'lastminute.com',
+				text: 'Design and development of new functions in the payment management systems of the entire group. SCRUM, TDD and pair programming, CI/CD with GitLab and Jenkins/Spinnaker.',
+				tech: 'Java, Kotlin, Spring Boot, REST, Grafana, MongoDB, MySQL',
+			},
+			{
+				name: 'RSI — Radiotelevisione Svizzera Italiana',
+				text: 'AWS-based workflow transcoding live streams into several formats, making them available on the web portal within minutes of the end of the live stream (published AWS case study).',
+				tech: 'Python, AWS Lambda, DynamoDB, API Gateway, MediaConvert',
+			},
+			{
+				name: 'NEXI Spa',
+				text: 'Integration layer between Salesforce and legacy systems: microservices interacting over an event messaging layer, with TDD, XP, DDD and hexagonal architecture.',
+				tech: 'Kotlin, Spring Cloud, REST, MySQL, RabbitMQ, Docker',
+			},
+		],
+	},
+	{
+		role: 'Senior Technical Consultant',
+		company: 'Fincons Group AG',
+		location: 'Lugano, CH',
+		period: 'Mar 2017 – Jul 2018',
+		description:
+			'Design and implementation of applications for innovative international research projects in the media sector; responsible for technical management and leading the development process.',
+		projects: [
+			{
+				name: 'CONTENT4ALL',
+				text: 'System for automatic sign-language translation using a photorealistic 3D avatar: defined the whole architecture and the integration plan between components, as Work Package leader for component integration.',
+				tech: 'Java, Spring, REST, Monitoring, Multimedia encoding/decoding',
+			},
+			{
+				name: 'PRODUCER',
+				text: 'Web application and extension of a Digital Asset Management system within a framework facilitating the creation of interactive TV documentaries, as Development Team Leader.',
+				tech: 'Java, Play Framework, REST, Angular, MongoDB, Nuxeo DAM, OAuth',
+			},
+		],
+	},
+	{
+		role: 'Software Engineer | Salesforce Consultant',
+		company: 'Arlanis - Reply Spa',
+		location: 'Milan, IT',
+		period: 'Sep 2014 – Feb 2017',
+		description:
+			'Business-oriented applications in the Salesforce environment for telco and media customers, plus custom Java web applications and integration layers.',
+		projects: [
+			{
+				name: 'Fastweb Digital Transformation',
+				text: 'REST services on the Salesforce platform integrating the Fastweb website during order taking, with the Bit2Win CPQ product. Role: Technical Coordinator.',
+				tech: 'Apex, REST, OAuth',
+			},
+			{
+				name: 'Vodafone Family and Convergence',
+				text: 'Integration layer between Salesforce and Vodafone provisioning systems, orchestrating validation and transmission. Role: Development Team Leader.',
+				tech: 'Java, Play Framework, SOAP',
+			},
+			{
+				name: 'RCS Salesforce Service Console',
+				text: 'Introduction of the Service Console in the RCS contact center with integration to the existing telephone bar. Role: Analyst and development leader.',
+				tech: 'Apex, Salesforce Service Console, Streaming API',
+			},
+			{
+				name: 'Vodafone Eagle Catalogue',
+				text: 'Web application built from scratch on Play Framework, hosted on AWS, to manage the catalog of Vodafone customer offers. Role: Development Team Leader.',
+				tech: 'Java, Play Framework, Hibernate',
+			},
+		],
+	},
+	{
+		role: 'Technology Consultant',
+		company: 'Hewlett Packard Italiana',
+		location: 'Milan, IT',
+		period: 'Nov 2011 – Aug 2014',
+		description:
+			'Innovative cloud computing projects and POCs with customers, European research centers and universities, as part of EU co-financed projects (cloud brokering, SLA negotiation, cloud energy efficiency, NFV).',
+		projects: [
+			{
+				name: 'Reskill Portal — Intesa Sanpaolo Spa',
+				text: 'Web application used by the contact unit to assess operator skills. Role: Development Team Leader.',
+				tech: 'Java, Spring MVC, Hibernate, REST, Vaadin',
+			},
+			{
+				name: 'CONTRAIL',
+				text: 'SLA manager covering the whole SLA life cycle (proposal, counter offer, negotiation, agreement) within an international cloud brokering platform.',
+				tech: 'Java EE, Spring, REST, SOAP, RabbitMQ',
+			},
+			{
+				name: 'NaaS Project',
+				text: 'Integration of a server-side web application with HP Operation Orchestration to add Network-as-a-Service capabilities (SDN).',
+				tech: 'Java EE, Spring, REST, SOAP',
+			},
+		],
+	},
+];
+
+const skills = [
+	{ label: 'Languages', value: 'Java, Python, TypeScript, JavaScript, Apex' },
+	{ label: 'Frameworks', value: 'Spring, FastAPI, Apache Spark, Angular, React, Apache Pulsar' },
+	{ label: 'Databases', value: 'Oracle DB, MySQL, PostgreSQL, MongoDB, DynamoDB' },
+	{ label: 'Cloud', value: 'AWS, Azure, Serverless' },
+	{ label: 'Deployment', value: 'CloudFormation, Terraform, Ansible, Kubernetes' },
+	{ label: 'AI', value: 'GitHub Copilot, Claude Code, LangGraph' },
+	{
+		label: 'Practices',
+		value: 'TDD, XP, SOLID, Hexagonal Architecture, DDD, Clean Architecture, Microservices',
+	},
+	{
+		label: 'Leadership & soft skills',
+		value: 'Stakeholder management, technical leadership, customer-facing consulting, mentoring',
+	},
+];
+
+const education = [
+	{
+		title: 'MSc in Computer Engineering',
+		school: 'University of Calabria',
+		period: '2011',
+		detail: 'Grade: 110/110',
+	},
+	{
+		title: 'BSc in Computer Engineering',
+		school: 'University of Calabria',
+		period: '2008',
+		detail: 'Grade: 100/110',
+	},
+];
+
+const certifications = [
+	{ name: 'Azure Fundamentals', year: '2024' },
+	{ name: 'AWS Certified Solutions Architect – Associate', year: '2021' },
+	{ name: 'AWS Certified Cloud Practitioner', year: '2021' },
+];
+
+const languages = ['Italian (native)', 'English (professional)'];
+
+const strengths = [
+	'Reliable team player, stays effective under pressure',
+	'Clear communicator with non-technical stakeholders',
+	'Quick to master new technologies and business domains',
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="CV — Pasquale Panuccio" description="Curriculum vitae of Pasquale Panuccio" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article class="cv">
+				<header class="cv-header">
+					<h1>Pasquale Panuccio</h1>
+					<p class="subtitle">Senior Software Engineer</p>
+					<p class="summary">
+						Senior Software Engineer specialized in data platforms, with hands-on experience in
+						agentic AI — turning complex, regulated business requirements into scalable,
+						high-quality systems. 15+ years delivering software end to end, from on-premises
+						systems to serverless architectures, for banking, payments, telco and the public
+						sector. Proven technical leader and mentor on international projects.
+					</p>
+					<p class="contacts">
+						<a href={`mailto:${EMAIL}`}>{EMAIL}</a> ·
+						<a href={LINKEDIN_URL}>LinkedIn</a> ·
+						<a href={GITHUB_URL}>GitHub</a>
+					</p>
+					<p class="download">
+						<a class="pdf-link" href="/cv.pdf" download>Download the PDF version ↓</a>
+					</p>
+				</header>
+
+				<section>
+					<h2>Experience</h2>
+					{
+						experience.map((job) => (
+							<div class="entry">
+								<div class="entry-head">
+									<h3>{job.role} — {job.company}</h3>
+									<span class="period">{job.period}</span>
+								</div>
+								<p class="entry-meta">{job.location}</p>
+								<p>{job.description}</p>
+								<ul class="projects">
+									{job.projects.map((project) => (
+										<li>
+											<strong>{project.name}</strong> — {project.text}
+											<em class="tech">Technologies: {project.tech}</em>
+										</li>
+									))}
+								</ul>
+							</div>
+						))
+					}
+				</section>
+
+				<section>
+					<h2>Skills</h2>
+					<dl class="skills">
+						{skills.map((skill) => (
+							<div class="skill-row">
+								<dt>{skill.label}</dt>
+								<dd>{skill.value}</dd>
+							</div>
+						))}
+					</dl>
+				</section>
+
+				<section>
+					<h2>Education</h2>
+					{
+						education.map((study) => (
+							<div class="entry">
+								<div class="entry-head">
+									<h3>{study.title} — {study.school}</h3>
+									<span class="period">{study.period}</span>
+								</div>
+								<p>{study.detail}</p>
+							</div>
+						))
+					}
+				</section>
+
+				<section>
+					<h2>Certifications</h2>
+					<ul>
+						{certifications.map((cert) => (
+							<li>{cert.name} ({cert.year})</li>
+						))}
+					</ul>
+				</section>
+
+				<section>
+					<h2>Languages</h2>
+					<ul>
+						{languages.map((lang) => (
+							<li>{lang}</li>
+						))}
+					</ul>
+				</section>
+
+				<section>
+					<h2>Strengths</h2>
+					<ul>
+						{strengths.map((strength) => (
+							<li>{strength}</li>
+						))}
+					</ul>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.cv {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 1em;
+	}
+	.cv-header {
+		text-align: center;
+		margin-bottom: 2em;
+	}
+	.cv-header h1 {
+		margin-bottom: 0.2em;
+	}
+	.subtitle {
+		font-size: 1.2em;
+		color: var(--accent);
+		margin: 0 0 0.8em;
+	}
+	.summary {
+		text-align: left;
+		color: rgb(var(--gray-dark));
+	}
+	.contacts {
+		color: rgb(var(--gray));
+	}
+	.pdf-link {
+		display: inline-block;
+		margin-top: 0.5em;
+		padding: 0.4em 1em;
+		border: 2px solid var(--accent);
+		border-radius: 8px;
+		color: var(--accent);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.pdf-link:hover {
+		background: var(--accent);
+		color: white;
+	}
+	section {
+		margin-bottom: 2em;
+	}
+	h2 {
+		border-bottom: 2px solid var(--accent);
+		padding-bottom: 0.3em;
+	}
+	.entry {
+		margin-bottom: 1.4em;
+	}
+	.entry-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 0.5em;
+	}
+	.entry h3 {
+		margin: 0;
+	}
+	.entry-meta {
+		margin: 0.1em 0 0.4em;
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+	}
+	.period {
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+		white-space: nowrap;
+	}
+	.projects {
+		padding-left: 1.2em;
+	}
+	.projects li {
+		margin-bottom: 0.6em;
+	}
+	.tech {
+		display: block;
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+		margin-top: 0.2em;
+	}
+	.skills {
+		margin: 0;
+	}
+	.skill-row {
+		display: grid;
+		grid-template-columns: 160px 1fr;
+		gap: 0.8em;
+		padding: 0.3em 0;
+		border-bottom: 1px solid rgba(var(--gray), 15%);
+	}
+	.skill-row dt {
+		font-weight: 600;
+	}
+	.skill-row dd {
+		margin: 0;
+	}
+	@media (max-width: 480px) {
+		.skill-row {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
